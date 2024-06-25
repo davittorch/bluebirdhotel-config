@@ -20,10 +20,6 @@ spec:
         - name: {{ include "bluebird-chart.name" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          volumeMounts:
-          - name: secrets-store-inline
-            mountPath: "/var/www/html/config"
-            readOnly: true
           env:
             - name: DB_SERVER
               valueFrom:
@@ -49,10 +45,3 @@ spec:
             - containerPort: 80
       tolerations:
         - operator: "Exists"
-      volumes:
-          - name: secrets-store-inline
-            csi:
-              driver: secrets-store.csi.k8s.io
-              readOnly: true
-              volumeAttributes:
-                secretProviderClass: aws-secrets
