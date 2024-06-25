@@ -1,0 +1,42 @@
+replicaCount: 1
+
+# Pass in your ECR Repo URI
+image:
+  repository: "211125651847.dkr.ecr.us-east-1.amazonaws.com/bluebird"
+  pullPolicy: Always
+  tag: "v1.0"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Pass in your LB Endpoint
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: "aaeb4d504317c4ea3ad21e3120bff8c2-f3fc0ae8f55fa2cf.elb.us-east-1.amazonaws.com"
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+clusterSecretStore:
+  name: "aws-secrets"
+  region: "us-east-1"
+  serviceAccountName: "aws-secrets-access"
+  namespace: "bluebird"
+
+externalSecret:
+  name: "rds-credentials"
+  namespace: "bluebird"
+  refreshInterval: "1h"
+  secretStoreName: "aws-secrets"
+  targetName: "rds-credentials-k8s"
+  creationPolicy: "Owner"
+  secretsKey: "secrets"
+
+secret:
+  name: rds-credentials-k8s

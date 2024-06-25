@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "bluebird-chart.fullname" . }}
+  namespace: bluebird
+  labels:
+    app: {{ include "bluebird-chart.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "bluebird-chart.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "bluebird-chart.name" . }}
+    spec:
+      serviceAccountName: aws-secrets-access
+      containers:
+        - name: {{ include "bluebird-chart.name" . }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          volumeMounts:
+          - name: secrets-store-inline
+            mountPath: "/var/www/html/config"
+            readOnly: true
+          env:
+            - name: DB_SERVER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }}
+                  key: host
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }}
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }}
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }} 
+                  key: dbname
+          ports:
+            - containerPort: 80
+      tolerations:
+        - operator: "Exists"
+      volumes:
+          - name: secrets-store-inline
+            csi:
+              driver: secrets-store.csi.k8s.io
+              readOnly: true
+              volumeAttributes:
+                secretProviderClass: aws-secrets
