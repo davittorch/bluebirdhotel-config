@@ -39,5 +39,10 @@ externalSecret:
   creationPolicy: "Owner"
   secretsKey: "arn:aws:secretsmanager:us-east-1:211125651847:secret:secrets-a3GkW3"
 
+serviceAccount:
+  create: true
+  name: "external-secrets-operator"
+  namespace: "bluebird"
+
 secret:
   name: rds-credentials-k8s
