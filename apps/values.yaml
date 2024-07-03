@@ -18,7 +18,7 @@ ingress:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: "a2edb91cf92a74e1485c955b267ef0fa-4422d0efbe4213b2.elb.us-east-1.amazonaws.com"
+    - host: "ac1693f6038af4ac4973fcfbcd90b7b5-2953ccb6edb70edd.elb.us-east-1.amazonaws.com"
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -30,8 +30,8 @@ clusterSecretStore:
   namespace: "bluebird"
 
 externalSecret:
-  name: "rds-credentials"
-  namespace: "bluebird"
+  name: "external-secrets"
+  namespace: "external-secrets"
   refreshInterval: "1h"
   secretStoreName: "aws-secrets"
   targetName: "rds-credentials-k8s"
