@@ -35,6 +35,7 @@ externalSecret:
   refreshInterval: "1h"
   secretStoreName: "aws-secrets"
   targetName: "rds-credentials-k8s"
+  targetNamespace: "bluebird"
   creationPolicy: "Owner"
   secretsKey: "arn:aws:secretsmanager:us-east-1:211125651847:secret:secrets-a3GkW3"
 
