@@ -36,7 +36,7 @@ externalSecret:
   secretStoreName: "aws-secrets"
   targetName: "rds-credentials-k8s"
   creationPolicy: "Owner"
-  secretsKey: "secrets"
+  secretsKey: "arn:aws:secretsmanager:us-east-1:211125651847:secret:secrets-a3GkW3"
 
 secret:
   name: rds-credentials-k8s
