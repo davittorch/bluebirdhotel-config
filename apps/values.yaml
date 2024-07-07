@@ -31,11 +31,11 @@ clusterSecretStore:
 
 externalSecret:
   name: "external-secrets"
-  namespace: "external-secrets"
+  namespace: "bluebird"
   refreshInterval: "1h"
   secretStoreName: "aws-secrets"
   targetName: "rds-credentials-k8s"
-  targetNamespace: "bluebird"
+  # targetNamespace: "bluebird"
   creationPolicy: "Owner"
   secretsKey: "arn:aws:secretsmanager:us-east-1:211125651847:secret:secrets-iFkdsr"
 
