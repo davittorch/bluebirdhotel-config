@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: keda
-  namespace: keda
+  namespace: argocd-apps
 spec:
   project: default
   source:
@@ -15,7 +15,7 @@ spec:
         watchNamespace: ""
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: keda
+    namespace: argocd-apps
   syncPolicy:
     automated:
       selfHeal: true
