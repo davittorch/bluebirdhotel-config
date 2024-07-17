@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -19,3 +20,19 @@ spec:
     automated:
       selfHeal: true
       prune: true
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: cpu-scaled-object
+  namespace: bluebird
+spec:
+  scaleTargetRef:
+    name: argocd-apps-bluebird-chart-6bcf64754-gk6t9
+  minReplicaCount: 1
+  maxReplicaCount: 5
+  triggers:
+    - type: cpu
+      metadata:
+        type: Utilization
+        value: "50"
