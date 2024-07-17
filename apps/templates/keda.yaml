@@ -29,7 +29,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: deployment
-    name: argocd-apps-bluebird-chart-6bcf64754-gk6t9
+    name: argocd-apps-bluebird-chart
   pollingInterval: 30
   cooldownPeriod:  300
   minReplicaCount: 1
