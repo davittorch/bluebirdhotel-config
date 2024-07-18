@@ -40,4 +40,4 @@ spec:
       # value: "70"
       metadata:
         type: Utilization
-        value: "50"
+        value: "20"
