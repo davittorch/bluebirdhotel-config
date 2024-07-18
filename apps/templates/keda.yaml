@@ -20,8 +20,6 @@ spec:
     automated:
       selfHeal: true
       prune: true
-    syncOptions:
-      - "SkipHooks=false"
 ---
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
