@@ -30,8 +30,6 @@ spec:
     apiVersion: apps/v1
     kind: deployment
     name: argocd-apps-bluebird-chart
-  pollingInterval: 10
-  cooldownPeriod:  300
   minReplicaCount: 1
   maxReplicaCount: 5
   triggers:
