@@ -22,7 +22,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           resources:
             requests:
-              cpu: "5m"
+              cpu: "250m"
           env:
             - name: DB_SERVER
               valueFrom:
