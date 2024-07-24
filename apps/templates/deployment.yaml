@@ -20,6 +20,9 @@ spec:
         - name: {{ include "bluebird-chart.name" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          resources:
+            requests:
+              cpu: "250m"
           env:
             - name: DB_SERVER
               valueFrom:
