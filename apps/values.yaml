@@ -37,7 +37,7 @@ externalSecret:
   targetName: "rds-credentials-k8s"
   # targetNamespace: "bluebird"
   creationPolicy: "Owner"
-  secretsKey: "arn:aws:secretsmanager:us-east-1:211125651847:secret:secrets-Gxcapi"
+  secretsKey: "arn:aws:secretsmanager:us-east-1:211125651847:secret:secrets-W87rLi"
 
 secret:
   name: rds-credentials-k8s
