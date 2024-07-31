@@ -18,7 +18,7 @@ ingress:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: "a67eaff598f234db08b82d7706c74d68-ab6ee7786c83ffec.elb.us-east-1.amazonaws.com"
+    - host: "aff49c98bd275414cbaa458785517010-da7e2a68a722adf2.elb.us-east-1.amazonaws.com"
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -37,7 +37,7 @@ externalSecret:
   targetName: "rds-credentials-k8s"
   # targetNamespace: "bluebird"
   creationPolicy: "Owner"
-  secretsKey: "arn:aws:secretsmanager:us-east-1:211125651847:secret:secrets-W87rLi"
+  secretsKey: "arn:aws:secretsmanager:us-east-1:211125651847:secret:secrets-kWx66Z"
 
 secret:
   name: rds-credentials-k8s
