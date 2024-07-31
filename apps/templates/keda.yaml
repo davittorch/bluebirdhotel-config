@@ -36,4 +36,4 @@ spec:
     - type: cpu
       metricType: Utilization
       metadata:
-        value: "5"
+        value: "1"
