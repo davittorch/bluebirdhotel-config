@@ -31,7 +31,7 @@ spec:
     kind: deployment
     name: argocd-apps-bluebird-chart
   minReplicaCount: 1
-  maxReplicaCount: 2
+  maxReplicaCount: 3
   triggers:
     - type: cpu
       metricType: Utilization
