@@ -6,7 +6,7 @@ metadata:
   labels:
     app: {{ include "bluebird-chart.name" . }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  # replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ include "bluebird-chart.name" . }}
