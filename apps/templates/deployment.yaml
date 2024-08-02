@@ -6,7 +6,6 @@ metadata:
   labels:
     app: {{ include "bluebird-chart.name" . }}
 spec:
-  # replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ include "bluebird-chart.name" . }}
@@ -22,7 +21,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           resources:
             requests:
-              memory: "500Mi"
+              memory: "50Mi"
           env:
             - name: DB_SERVER
               valueFrom:
