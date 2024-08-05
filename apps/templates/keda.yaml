@@ -35,9 +35,8 @@ spec:
     name: argocd-apps-bluebird-chart
   minReplicaCount: 1
   maxReplicaCount: 3
-  cooldownPeriod: 10
   triggers:
     - type: memory
       metricType: Utilization
       metadata:
-        value: "80"
+        value: "5"
