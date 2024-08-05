@@ -40,4 +40,4 @@ spec:
     - type: memory
       metricType: Utilization
       metadata:
-        value: "80"
+        value: "5"
